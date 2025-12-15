@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafika na szkle (UV) - 71 GLASS</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0891b2',
+                        primaryDark: '#0e7490',
+                        secondary: '#0f172a',
+                        accent: '#f59e0b',
+                        light: '#f8fafc',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-slate-700 antialiased bg-slate-50">
+
+    <!-- Nawigacja (Zachowana spójność) -->
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/95 border-b border-slate-100 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html" class="flex-shrink-0 flex items-center gap-2 cursor-pointer group">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-primaryDark text-white rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition duration-300 shadow-lg">
+                        <i class="fa-solid fa-layer-group text-xl"></i>
+                    </div>
+                    <span class="font-serif font-bold text-2xl text-secondary tracking-tight">71 <span class="text-primary">GLASS</span></span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="./index.html" class="text-sm font-semibold text-primary transition uppercase tracking-wider">Oferta</a>
+                    <a href="../wybrane/index.html" class="text-sm font-semibold text-slate-600 hover:text-primary transition uppercase tracking-wider">Realizacje</a>
+                    <a href="../index.html#proces" class="text-sm font-semibold text-slate-600 hover:text-primary transition uppercase tracking-wider">Jak działamy</a>
+                    <a href="../index.html#kontakt" class="bg-gradient-to-r from-primary to-primaryDark text-white px-7 py-2.5 rounded-full font-semibold hover:shadow-lg hover:shadow-primary/30 transition transform hover:-translate-y-0.5">
+                        Darmowa Wycena
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-primary p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="./index.html" class="block px-3 py-3 rounded-lg text-base font-medium text-primary bg-slate-50">Oferta</a>
+                <a href="../wybrane/index.html" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-primary">Realizacje</a>
+                <a href="../index.html#proces" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-slate-50">Jak działamy</a>
+                <a href="../index.html#kontakt" class="block mt-4 text-center px-3 py-3 rounded-lg text-base font-bold bg-primary/10 text-primary">Zamów wycenę</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <!-- Hero Section with Breadcrumb -->
+        <section class="relative bg-white pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
+            <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#0891b2_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="mb-8">
+                    <a href="./index.html" class="text-sm font-semibold text-slate-500 hover:text-primary transition inline-flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Wróć do oferty
+                    </a>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                            Technologia UV
+                        </span>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-secondary leading-tight">
+                            Twoja ściana,<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primaryDark">Twoje dzieło sztuki.</span>
+                        </h1>
+                        <p class="text-lg text-slate-600 leading-relaxed max-w-lg">
+                            Zapomnij o nudnych płytkach. Grafika na szkle to nowoczesny sposób na nadanie wnętrzu unikalnego charakteru. Drukujemy w jakości fotograficznej, bezpośrednio na bezpiecznym szkle hartowanym.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                            <a href="#galeria" class="bg-secondary text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-slate-800 transition text-center shadow-lg">
+                                Zobacz inspiracje
+                            </a>
+                            <a href="#zalety" class="flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-semibold text-secondary border border-slate-200 hover:bg-slate-50 transition">
+                                <i class="fa-regular fa-circle-play"></i> Poznaj zalety
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-primary to-primaryDark rounded-2xl opacity-20 blur-2xl transform rotate-3"></div>
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Kuchnia z grafiką na szkle" class="relative rounded-2xl shadow-2xl w-full h-auto object-cover aspect-[4/3] hover:scale-[1.01] transition duration-500">
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 hidden md:block">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-semibold uppercase">Materiał</p>
+                                    <p class="font-bold text-secondary">Szkło Hartowane ESG</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid (Zamiast nudnej listy) -->
+        <section id="zalety" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-secondary mb-4">Dlaczego szkło z grafiką?</h2>
+                    <p class="text-slate-600">To nie tylko estetyka. To rozwiązanie funkcjonalne, które rozwiązuje problemy tradycyjnych wykończeń.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition group border border-slate-100">
+                        <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-primary text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-3">Miliony Wzorów</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Wybierz zdjęcie z banku zdjęć (np. Adobe Stock), dostarcz własną fotografię lub wybierz grafikę wektorową. Ogranicza Cię tylko wyobraźnia.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition group border border-slate-100">
+                        <div class="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center text-accent text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-3">Niezwykła Trwałość</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Drukujemy w technologii UV, która jest utwardzana światłem. Kolory nie blakną, a szkło hartowane jest odporne na uderzenia i wysokie temperatury przy kuchence.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition group border border-slate-100">
+                        <div class="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600 text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-3">Higiena Perfect</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Brak fug oznacza brak brudu i pleśni. Idealnie gładka tafla szkła czyści się jednym pociągnięciem szmatki. Idealne rozwiązanie dla alergików.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition group border border-slate-100">
+                        <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-crop-simple"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-3">Na Wymiar</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Wycinamy otwory pod gniazdka z dokładnością CNC. Panele pasują idealnie do Twojej zabudowy meblowej.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Steps (Wizualizacja procesu) -->
+        <section class="py-20 bg-white border-y border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-secondary mb-6">Jak powstaje Twój panel?</h2>
+                        <div class="space-y-8">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">1</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-secondary">Pomiar i Wybór Grafiki</h4>
+                                    <p class="text-slate-600 text-sm mt-1">Przyjeżdżamy na pomiar laserowy. Ty przeglądasz bazę zdjęć (np. <a href="#" class="text-primary underline">Adobe Stock</a>) lub konsultujesz się z naszym grafikiem.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">2</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-secondary">Wizualizacja i Akceptacja</h4>
+                                    <p class="text-slate-600 text-sm mt-1">Nie kupujesz kota w worku. Przygotowujemy wizualizację panelu na zdjęciu Twojej kuchni. Widzisz efekt przed drukiem.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">3</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-secondary">Produkcja i Montaż</h4>
+                                    <p class="text-slate-600 text-sm mt-1">Drukujemy szkło, hartujemy je, a następnie nasza ekipa montuje gotowy produkt u Ciebie. Szybko i czysto.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-96 rounded-2xl overflow-hidden shadow-2xl group">
+                        <img src="https://images.unsplash.com/photo-1562408590-e32931084e23?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Proces druku UV" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/50">
+                                <i class="fa-solid fa-print text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inspiration Gallery (Gdzie to pasuje?) -->
+        <section id="galeria" class="py-20 bg-secondary text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-primary font-bold tracking-wider uppercase text-xs">Inspiracje</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2">Gdzie stosujemy grafikę na szkle?</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Item 1 -->
+                    <div class="group relative overflow-hidden rounded-xl aspect-[4/5] cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Kuchnia">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition">
+                            <h3 class="text-xl font-bold mb-1">Panele Kuchenne</h3>
+                            <p class="text-sm text-slate-300 opacity-0 group-hover:opacity-100 transition delay-100">Alternatywa dla płytek między szafkami.</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="group relative overflow-hidden rounded-xl aspect-[4/5] cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1753605788101-04d1e653e74a?q=80&w=1078&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Łazienka">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition">
+                            <h3 class="text-xl font-bold mb-1">Łazienki i SPA</h3>
+                            <p class="text-sm text-slate-300 opacity-0 group-hover:opacity-100 transition delay-100">Wodoodporne obrazy pod prysznic.</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="group relative overflow-hidden rounded-xl aspect-[4/5] cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Szafy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition">
+                            <h3 class="text-xl font-bold mb-1">Fronty Szaf</h3>
+                            <p class="text-sm text-slate-300 opacity-0 group-hover:opacity-100 transition delay-100">Odśwież wygląd szafy przesuwnej.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-br from-primary to-primaryDark rounded-3xl p-8 md:p-16 text-center text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-black/10 rounded-full blur-3xl"></div>
+
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 relative z-10">Stwórzmy razem coś pięknego</h2>
+                    <p class="text-blue-100 mb-8 max-w-2xl mx-auto text-lg relative z-10">
+                        Nie wiesz czy Twoje zdjęcie się nadaje? A może potrzebujesz pomocy w doborze wzoru?
+                        Skontaktuj się z nami - wycena i konsultacja są u nas zawsze darmowe.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+                        <a href="../index.html#kontakt" class="bg-white text-primaryDark px-8 py-3.5 rounded-full font-bold hover:bg-blue-50 transition shadow-lg">
+                            Poproś o darmową wycenę
+                        </a>
+                        <a href="tel:+48000000000" class="flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold border border-white/30 hover:bg-white/10 transition">
+                            <i class="fa-solid fa-phone"></i> Zadzwoń do nas
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Zachowany z oryginału) -->
+    <footer class="bg-secondary text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                 <a href="../index.html" class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white text-xs font-bold">71</div>
+                    <span class="font-serif text-xl text-white">71 GLASS</span>
+                </a>
+            </div>
+            <div class="text-sm text-center md:text-right">
+                <p>&copy; 2023 71 GLASS. Wszelkie prawa zastrzeżone.</p>
+                <p class="text-xs text-slate-600 mt-1">Projekt i realizacja: Tailwind CSS</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

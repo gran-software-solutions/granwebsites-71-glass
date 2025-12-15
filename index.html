@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>71 GLASS - Szkło do Twojej Kuchni</title>
+    <!-- Tailwind CSS z CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+    <!-- Konfiguracja Tailwind (Kolory, Czcionki, Animacje) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0891b2', // Cyan-600
+                        primaryDark: '#0e7490', // Cyan-700
+                        secondary: '#0f172a', // Slate-900
+                        accent: '#f59e0b', // Amber
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS dla specyficznych efektów -->
+    <style>
+        /* Gradient nakładany na zdjęcie w Hero */
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 100%);
+        }
+
+        /* Płynne przewijanie z odsunięciem na nawigację */
+        html {
+            scroll-padding-top: 80px;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-700 antialiased bg-slate-50">
+
+    <!-- Nawigacja (Glassmorphism) -->
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/90 border-b border-white/20 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-primaryDark text-white rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition duration-300 shadow-lg">
+                        <i class="fa-solid fa-layer-group text-xl"></i>
+                    </div>
+                    <span class="font-serif font-bold text-2xl text-secondary tracking-tight">71 <span class="text-primary">GLASS</span></span>
+                </div>
+
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="oferta/index.html" class="text-sm font-semibold text-slate-600 hover:text-primary transition uppercase tracking-wider">Oferta</a>
+                    <a href="wybrane/index.html" class="text-sm font-semibold text-slate-600 hover:text-primary transition uppercase tracking-wider">Realizacje</a>
+                    <a href="#proces" class="text-sm font-semibold text-slate-600 hover:text-primary transition uppercase tracking-wider">Jak działamy</a>
+                    <a href="#kontakt" class="bg-gradient-to-r from-primary to-primaryDark text-white px-7 py-2.5 rounded-full font-semibold hover:shadow-lg hover:shadow-primary/30 transition transform hover:-translate-y-0.5">
+                        Darmowa Wycena
+                    </a>
+                </div>
+
+                <!-- Przycisk Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-primary p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="oferta/index.html" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-primary">Oferta</a>
+                <a href="wybrane/index.html" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-primary">Realizacje</a>
+                <a href="#proces" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-primary">Jak działamy</a>
+                <a href="#kontakt" class="block mt-4 text-center px-3 py-3 rounded-lg text-base font-bold bg-primary/10 text-primary">Zamów wycenę</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center overflow-hidden">
+        <!-- Tło zdjęcia -->
+        <div class="absolute inset-0 z-0">
+            <img src="img/hero.webp" alt="Nowoczesna kuchnia" class="w-full h-full object-cover">
+        </div>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 z-10 hero-overlay"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-32 md:pt-20">
+            <div class="md:w-2/3 lg:w-1/2">
+                <div class="inline-block px-4 py-1.5 bg-primary/20 border border-primary/30 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-6 animate-fade-in-up">
+                    <i class="fa-solid fa-star text-accent mr-1"></i> Lider szkła kuchennego
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight animate-fade-in-up shadow-black drop-shadow-lg">
+                    Nadaj swojej kuchni <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-sky-300">blasku</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 font-light leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Projektujemy i montujemy szkło z grafiką, Lacobel oraz lustra na wymiar. Technologia UV, szkło hartowane i precyzja co do milimetra.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <a href="#kontakt" class="px-8 py-4 bg-primary hover:bg-primaryDark text-white rounded-lg font-bold transition duration-300 shadow-[0_0_20px_rgba(8,145,178,0.4)] text-center flex items-center justify-center gap-2 group">
+                        <span>Umów pomiar</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </a>
+                    <a href="wybrane/index.html" class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg font-bold hover:bg-white hover:text-secondary transition duration-300 text-center">
+                        Zobacz galerię
+                    </a>
+                </div>
+
+                <!-- Cechy -->
+                <div class="mt-16 pt-8 border-t border-white/10 grid grid-cols-3 gap-6 animate-fade-in-up" style="animation-delay: 0.6s;">
+                    <div>
+                        <p class="text-3xl font-bold text-white">10+</p>
+                        <p class="text-sm text-slate-400">Lat doświadczenia</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-white">5k+</p>
+                        <p class="text-sm text-slate-400">Realizacji</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-white">5 lat</p>
+                        <p class="text-sm text-slate-400">Gwarancji</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Oferta -->
+    <section id="oferta" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm">Nasze Rozwiązania</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-secondary mt-2 mb-4">Szkło, które zmienia wnętrze</h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-primary to-transparent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Karta 1 -->
+                <div class="group bg-white rounded-2xl p-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-slate-100">
+                    <div class="relative overflow-hidden rounded-xl h-64">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Grafika na szkle" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-image text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-secondary">Grafika na szkle (UV)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Twoje ulubione zdjęcie lub wzór z banku zdjęć nadrukowane bezpośrednio na szkle. Trwałość i głębia kolorów.</p>
+                        <a href="oferta/grafika-na-szkle.html" class="text-primary font-bold text-sm hover:underline">Dowiedz się więcej</a>
+                    </div>
+                </div>
+
+                <!-- Karta 2 -->
+                <div class="group bg-white rounded-2xl p-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-slate-100">
+                    <div class="relative overflow-hidden rounded-xl h-64">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Szkło Lacobel" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-palette text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-secondary">Lacobel (Jednokolorowe)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Minimalistyczne, jednolite tafle szkła. Idealne do nowoczesnych wnętrz. Dostępne w palecie RAL i NCS.</p>
+                        <a href="oferta/lacobel.html" class="text-primary font-bold text-sm hover:underline">Dowiedz się więcej</a>
+                    </div>
+                </div>
+
+                <!-- Karta 3 -->
+                <div class="group bg-white rounded-2xl p-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-slate-100">
+                    <div class="relative overflow-hidden rounded-xl h-64">
+                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lustra na wymiar" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-gem text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-secondary">Lustra i Loft</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Lustra na wymiar, szlifowane i fazowane. Także ścianki szklane w stylu industrialnym (Loft).</p>
+                        <a href="oferta/lustra-i-loft.html" class="text-primary font-bold text-sm hover:underline">Dowiedz się więcej</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <span class="text-primary font-bold tracking-wider uppercase text-sm">Portfolio</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-secondary mt-2">Wybrane Realizacje</h2>
+                </div>
+                <a href="wybrane/index.html" class="hidden md:inline-flex items-center gap-2 text-primary font-bold hover:text-primaryDark transition mt-4 md:mt-0">
+                    Zobacz pełną galerię <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[600px]">
+                <!-- Główne duże zdjęcie -->
+                <a href="wybrane/warszawa-wilanow-marmurowa-elegancja.html" class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Realizacja 1">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
+                        <span class="text-primary text-sm font-bold uppercase mb-1">Warszawa / Wilanów</span>
+                        <h3 class="text-white text-2xl font-bold">Marmurowa Elegancja</h3>
+                    </div>
+                </a>
+
+                <!-- Mniejsze zdjęcia -->
+                <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Realizacja 2">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fa-solid fa-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Realizacja 3">
+                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fa-solid fa-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Realizacja 4">
+                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fa-solid fa-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Realizacja 5">
+                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fa-solid fa-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="md:hidden mt-8 text-center">
+                <a href="wybrane/index.html" class="inline-flex items-center gap-2 text-primary font-bold hover:text-primaryDark transition">
+                    Zobacz pełną galerię <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proces -->
+    <section id="proces" class="py-24 bg-secondary text-white relative overflow-hidden">
+        <!-- Dekoracyjne Bloby (Tło) -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 animate-pulse"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 animate-pulse" style="animation-delay: 1s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm">Transparentność</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mt-2">Od pomysłu do montażu</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Krok 1 -->
+                <div class="text-center group">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl flex items-center justify-center border border-gray-700 shadow-xl group-hover:-translate-y-2 transition duration-300 relative z-10">
+                            <i class="fa-solid fa-calculator text-3xl text-primary group-hover:scale-110 transition"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-lg transform group-hover:scale-125 transition duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">1. Wycena Online</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed px-4">Wypełnij formularz lub zadzwoń. Wstępną wycenę otrzymasz w 24h.</p>
+                </div>
+
+                <!-- Łącznik (Strzałka) tylko na Desktop -->
+                <div class="hidden md:block absolute top-1/2 left-[23%] w-[5%] border-t-2 border-dashed border-gray-700 -z-10"></div>
+
+                 <!-- Krok 2 -->
+                 <div class="text-center group">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl flex items-center justify-center border border-gray-700 shadow-xl group-hover:-translate-y-2 transition duration-300 relative z-10">
+                            <i class="fa-solid fa-ruler-combined text-3xl text-primary group-hover:scale-110 transition"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-lg transform group-hover:scale-125 transition duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">2. Pomiar Laserowy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed px-4">Odwiedzamy Cię, mierzymy ściany laserem i przywozimy wzorniki szkła.</p>
+                </div>
+
+                 <!-- Krok 3 -->
+                 <div class="text-center group">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl flex items-center justify-center border border-gray-700 shadow-xl group-hover:-translate-y-2 transition duration-300 relative z-10">
+                            <i class="fa-solid fa-industry text-3xl text-primary group-hover:scale-110 transition"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-lg transform group-hover:scale-125 transition duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">3. Produkcja i Hartowanie</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed px-4">Obróbka CNC, hartowanie w piecu i druk UV najwyższej jakości.</p>
+                </div>
+
+                 <!-- Krok 4 -->
+                 <div class="text-center group">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-primary to-primaryDark rounded-2xl flex items-center justify-center border border-primary/50 shadow-xl group-hover:-translate-y-2 transition duration-300 relative z-10">
+                            <i class="fa-solid fa-check text-3xl text-white group-hover:scale-110 transition animate-float"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-primary/40 rounded-2xl blur-lg transform group-hover:scale-125 transition duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">4. Czysty Montaż</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed px-4">Montujemy panele na klej montażowy. Szybko, czysto i profesjonalnie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-slate-100">
+
+                <!-- Lewa strona: Info -->
+                <div class="lg:w-5/12 bg-secondary p-12 text-white relative flex flex-col justify-between overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-serif font-bold mb-2">Porozmawiajmy</h3>
+                        <p class="text-slate-400 mb-8">Zostaw nam wiadomość, a oddzwonimy z konkretną propozycją i wyceną.</p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-phone text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Infolinia</p>
+                                    <p class="text-xl font-bold hover:text-primary transition cursor-pointer">+48 500 600 700</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Email</p>
+                                    <p class="text-xl font-bold hover:text-primary transition cursor-pointer">biuro@71glass.pl</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 mt-12">
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prawa strona: Formularz -->
+                <div class="lg:w-7/12 p-12 bg-white">
+                    <form onsubmit="event.preventDefault();" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="group">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2 group-focus-within:text-primary transition">Imię i Nazwisko</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition" placeholder="Jan Kowalski" required>
+                            </div>
+                            <div class="group">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2 group-focus-within:text-primary transition">Telefon</label>
+                                <input type="tel" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition" placeholder="500 600 700" required>
+                            </div>
+                        </div>
+
+                        <div class="group">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2 group-focus-within:text-primary transition">Wymiary (cm) - Opcjonalne</label>
+                            <div class="flex gap-4">
+                                <input type="number" placeholder="Szerokość" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition">
+                                <input type="number" placeholder="Wysokość" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition">
+                            </div>
+                        </div>
+
+                        <div class="group">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2 group-focus-within:text-primary transition">Wiadomość</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition" placeholder="Opisz czego potrzebujesz..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-primary to-primaryDark text-white font-bold py-4 rounded-lg shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transform hover:-translate-y-1 transition duration-300">
+                            Wyślij Zapytanie Bezpłatnie
+                        </button>
+                        <p class="text-center text-xs text-slate-400 mt-4">Administratorem Twoich danych osobowych jest 71 GLASS...</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white text-xs font-bold">71</div>
+                <span class="font-serif text-xl text-white">71 GLASS</span>
+            </div>
+            <div class="text-sm">
+                &copy; 2023 71 GLASS. Projekt strony zrealizowany w Tailwind CSS.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Prosta logika dla menu mobilnego
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Zmiana tła nawigacji przy scrollowaniu (dodatkowe zabezpieczenie wizualne)
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>

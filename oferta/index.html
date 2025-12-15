@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta - 71 GLASS</title>
+    <!-- Tailwind CSS z CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0891b2',
+                        primaryDark: '#0e7490',
+                        secondary: '#0f172a',
+                        accent: '#f59e0b',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-slate-700 antialiased bg-slate-50">
+
+    <!-- Nawigacja -->
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/90 border-b border-white/20 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html" class="flex-shrink-0 flex items-center gap-2 cursor-pointer group">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-primaryDark text-white rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition duration-300 shadow-lg">
+                        <i class="fa-solid fa-layer-group text-xl"></i>
+                    </div>
+                    <span class="font-serif font-bold text-2xl text-secondary tracking-tight">71 <span class="text-primary">GLASS</span></span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="./index.html" class="text-sm font-semibold text-primary transition uppercase tracking-wider">Oferta</a>
+                    <a href="../wybrane/index.html" class="text-sm font-semibold text-slate-600 hover:text-primary transition uppercase tracking-wider">Realizacje</a>
+                    <a href="../index.html#proces" class="text-sm font-semibold text-slate-600 hover:text-primary transition uppercase tracking-wider">Jak działamy</a>
+                    <a href="../index.html#kontakt" class="bg-gradient-to-r from-primary to-primaryDark text-white px-7 py-2.5 rounded-full font-semibold hover:shadow-lg hover:shadow-primary/30 transition transform hover:-translate-y-0.5">
+                        Darmowa Wycena
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-primary p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="./index.html" class="block px-3 py-3 rounded-lg text-base font-medium text-primary bg-slate-50">Oferta</a>
+                <a href="../wybrane/index.html" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-primary">Realizacje</a>
+                <a href="../index.html#proces" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-primary">Jak działamy</a>
+                <a href="../index.html#kontakt" class="block mt-4 text-center px-3 py-3 rounded-lg text-base font-bold bg-primary/10 text-primary">Zamów wycenę</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <section id="oferta" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span class="text-primary font-bold tracking-wider uppercase text-sm">Nasze Rozwiązania</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-secondary mt-2 mb-4">Szkło, które zmienia wnętrze</h2>
+                    <div class="w-20 h-1.5 bg-gradient-to-r from-primary to-transparent mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Karta 1 -->
+                    <div class="group bg-white rounded-2xl p-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-slate-100">
+                        <div class="relative overflow-hidden rounded-xl h-64">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Grafika na szkle" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-secondary">Grafika na szkle (UV)</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">Twoje ulubione zdjęcie lub wzór z banku zdjęć nadrukowane bezpośrednio na szkle. Trwałość i głębia kolorów.</p>
+                            <a href="./grafika-na-szkle.html" class="text-primary font-bold text-sm hover:underline">Dowiedz się więcej</a>
+                        </div>
+                    </div>
+                    <!-- Karta 2 -->
+                    <div class="group bg-white rounded-2xl p-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-slate-100">
+                        <div class="relative overflow-hidden rounded-xl h-64">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Szkło Lacobel" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-secondary">Lacobel (Jednokolorowe)</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">Minimalistyczne, jednolite tafle szkła. Idealne do nowoczesnych wnętrz. Dostępne w palecie RAL i NCS.</p>
+                            <a href="./lacobel.html" class="text-primary font-bold text-sm hover:underline">Dowiedz się więcej</a>
+                        </div>
+                    </div>
+                    <!-- Karta 3 -->
+                    <div class="group bg-white rounded-2xl p-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-slate-100">
+                        <div class="relative overflow-hidden rounded-xl h-64">
+                            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lustra na wymiar" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-secondary">Lustra i Loft</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">Lustra na wymiar, szlifowane i fazowane. Także ścianki szklane w stylu industrialnym (Loft).</p>
+                            <a href="./lustra-i-loft.html" class="text-primary font-bold text-sm hover:underline">Dowiedz się więcej</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <a href="../index.html" class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white text-xs font-bold">71</div>
+                    <span class="font-serif text-xl text-white">71 GLASS</span>
+                </a>
+            </div>
+            <div class="text-sm">
+                &copy; 2023 71 GLASS. Projekt strony zrealizowany w Tailwind CSS.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
